@@ -1,1 +1,14 @@
-
+spring:
+  application:
+    name: spring-mongo-reactive
+  data:
+    mongodb:
+      database: ${MONGO_DATABASE:master_db}
+      username: ${MONGO_USERNAME:master_user}
+      password: ${MONGO_PASSWORD:master_password}
+      host: ${MONGO_HOST:localhost}
+      port: ${MONGO_PORT:27017}
+      uuid-representation: java_legacy
+      repositories:
+        type: reactive
+      authentication-database: ${MONGO_AUTH_SOURCE:admin}
