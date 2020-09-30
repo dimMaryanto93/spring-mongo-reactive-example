@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringMongoReactiveExampleApplication {
+public class SpringReactiveMongoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringMongoReactiveExampleApplication.class, args);
+		SpringApplication.run(SpringReactiveMongoApplication.class, args);
 	}
 
 }
