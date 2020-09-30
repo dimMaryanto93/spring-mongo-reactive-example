@@ -1,0 +1,21 @@
+GET http://{{host}}:{{port}}{{context-path}}/api/v1/person/5f745ed6e1a774165b76f8/findById
+Content-Type: application/json
+
+### find by id ###
+
+POST http://{{host}}:{{port}}{{context-path}}/api/v1/person/new
+Content-Type: application/json
+
+{
+  "firstName": "Dimas",
+  "lastName": "Maryanto",
+  "birthDate": "1993-03-03",
+  "saldo": 0
+}
+
+### Save new person ###
+
+GET http://{{host}}:{{port}}{{context-path}}/api/v1/person/list
+Content-Type: application/json
+
+### find all ###

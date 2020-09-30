@@ -2,14 +2,12 @@ package com.maryanto.dimas.example.documents;
 
 import lombok.Builder;
 import lombok.Data;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Version;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
-import javax.validation.constraints.Positive;
+import javax.validation.constraints.*;
 import java.time.LocalDate;
 
 @Data
@@ -17,9 +15,8 @@ import java.time.LocalDate;
 @Document(collection = "person")
 public class Person {
 
-    @MongoId
-    private Long id;
-
+    @Id
+    private String id;
     @NotNull
     @NotEmpty
     private String firstName;
@@ -28,9 +25,8 @@ public class Person {
     private String lastName;
     @Past
     private LocalDate birthDate;
-    @Positive
+    @PositiveOrZero
     @NotNull
-    @NotEmpty
     private Number saldo;
     @Version
     private Long version;

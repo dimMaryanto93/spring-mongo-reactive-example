@@ -5,6 +5,7 @@ import com.maryanto.dimas.example.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
@@ -15,7 +16,7 @@ public class PersonController {
     private PersonService service;
 
     @GetMapping("/{id}/findById")
-    public Mono<Person> findById(@PathVariable("id") Long id) {
+    public Mono<Person> findById(@PathVariable("id") String id) {
         return this.service.findById(id);
     }
 
@@ -23,4 +24,15 @@ public class PersonController {
     public Mono<Person> save(@RequestBody @Validated Person person) {
         return this.service.save(person);
     }
+
+    @GetMapping("/list")
+    public Flux<Person> findAll() {
+        return this.service.findAll();
+    }
+
+    @GetMapping("/findByFirstNameAndLastName")
+    public Flux<Person> findByFirstNameAndLastName(@RequestParam String firstName, @RequestParam String lastName) {
+        return this.service.findByFirstNameAndLastName(firstName, lastName);
+    }
+
 }
